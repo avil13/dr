@@ -15,12 +15,11 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import { IUser } from '../types/user'
 
 @Component
 export default class UserListItemComponent extends Vue {
   @Prop()
-  user: IUser;
+  user: any;
 
   getToken () {}
 
