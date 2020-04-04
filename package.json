@@ -7,13 +7,14 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
-    "build": "parcel build index.html -d ../static"
+    "build": "parcel build index.html -d docs"
   },
   "keywords": [],
   "license": "ISC",
   "dependencies": {
     "bulma": "^0.8.1",
     "vue": "^2.5.16",
+    "vue-act-master": "^0.0.2",
     "vue-property-decorator": "^8.4.1",
     "vue-router": "^3.0.1"
   },

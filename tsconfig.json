@@ -23,7 +23,11 @@
             "@/*": [
                 "src/*"
             ]
-        }
+        },
+        "types": [
+          "vue-act-master",
+          "jest"
+        ]
     },
     "include": ["src/**/*", "types/shim.vue.d.ts"]
 }

@@ -3,6 +3,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+import { VueActMaster } from 'vue-act-master';
+
+Vue.use(VueActMaster);
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

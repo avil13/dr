@@ -60,16 +60,26 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import UserListItem from './components/user-list-item.vue'
+import { Component, Vue } from 'vue-property-decorator';
+import UserListItem from './components/user-list-item.vue';
+import { getState, setState } from '@/base-process';
+import { IState } from '@/types/state-types';
 
 const components = {
   UserListItem
-}
+};
 
 @Component({
-  components
+  components,
 })
 export default class AppComponent extends Vue {
+  state!: IState;
+
+  async mounted() {
+    this.$act.addAction(setState.name, setState);
+    this.$act.addAction(getState.name, getState);
+
+    this.state = await this.$act.exec(getState.name);
+  }
 }
 </script>
