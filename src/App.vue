@@ -62,11 +62,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import UserListItem from './components/user-list-item.vue';
-import { getState, setState } from '@/base-process';
-import { IState } from '@/types/state-types';
+import { getState, setState } from './base-process';
+import { IState } from './types/state-types';
 
 const components = {
-  UserListItem
+  UserListItem,
 };
 
 @Component({

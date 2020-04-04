@@ -1,5 +1,5 @@
-import { IState } from '@/types/state-types';
-import { storeName } from '@/constants/index';
+import { IState } from '../types/state-types';
+import { storeName } from '../constants/index';
 
 export const get = (): IState => {
   return {

@@ -1,5 +1,5 @@
 import { ActMasterAction } from 'vue-act-master';
-import { set } from '@/utils/storage';
+import { set } from '../utils/storage';
 
 export const setState: ActMasterAction = {
   name: 'setState',

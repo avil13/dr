@@ -1,4 +1,4 @@
-import { UserNamesType } from '@/constants';
+import { UserNamesType } from '../constants';
 
 export interface IState {
   name: string;
