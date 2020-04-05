@@ -15,13 +15,13 @@ export const get = (): IState => {
   }
 
   return {
+    init: false,
     step: 0,
     scoreMap,
   };
 };
 
 export const set = (state: IState): void => {
-  console.log('=> set state:', state);
   if (typeof state === 'object' && state !== null) {
     sessionStorage.setItem(storeName, JSON.stringify(state));
   }

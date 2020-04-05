@@ -5,6 +5,7 @@ export type IScoreMap = {
 };
 
 export interface IState {
+  init: boolean;
   scoreMap: IScoreMap;
   step: number;
 }
