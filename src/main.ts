@@ -5,7 +5,9 @@ import App from './App.vue'
 
 import { VueActMaster } from 'vue-act-master';
 
-Vue.use(VueActMaster);
+Vue.use(VueActMaster, {
+  errorOnReplaceAction: false
+});
 
 Vue.config.productionTip = false
 

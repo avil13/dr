@@ -1,7 +1,7 @@
-import { ActMasterAction } from 'vue-act-master';
+import { ActMasterActionNamed } from 'vue-act-master';
 import { get } from '../utils/storage';
 
-export const getState: ActMasterAction = {
+export const getState: ActMasterActionNamed = {
   name: 'getState',
   exec() {
     return get();
