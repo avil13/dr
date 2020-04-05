@@ -3,11 +3,9 @@ import { IQuestion } from '@/types/state-types';
 export const queryList: IQuestion[] = [
   {
     title: 'Это сайт открытка',
-    question: 'Но есть нюанс. Он для именинницы, и только она может ответить на все вопросы правильно. Но ты можешь доказать, что он сделан для тебя 😏',
-    plusItems: [],
-    answers: [
-      { text: 'Да, он для меня!!!', isValid: true },
-    ],
+    question:
+      'Но есть нюанс. Он для именинницы, и только она может ответить на все вопросы правильно. Но ты можешь доказать, что он сделан для тебя 😏',
+    answers: [{ text: 'Да, он для меня!!!', isValid: true }],
   },
   //
   {
@@ -38,14 +36,13 @@ export const queryList: IQuestion[] = [
   {
     title: 'Второй вопрос',
     question: 'Балгодаря кому, мы познакомились?',
-    plusItems: ['Lena'],
     answers: [
-      'Юля',
-      'Лена',
-      'Оля',
-      { text: 'Аня', isValid: true },
-      'Таня',
-      'Олеся',
+      { text: 'Аня', answerNick: ['Lena'] },
+      {text: 'Юля', answerNick: ['SeregaSav', 'LenaSav', 'Monah']},
+      {text: 'Лена', answerNick: ['otherName']},
+      {text: 'Леха', answerNick: ['Ula', 'Munser', 'Monah'] },
+      {text: 'Егор', answerNick: ['Ula', 'Munser'] },
+      {text: 'Сергей', answerNick: ['otherName'] },
     ],
   },
   //
@@ -53,7 +50,6 @@ export const queryList: IQuestion[] = [
     title: 'Третий вопрос',
     question: 'Выбери два имени, кторорые надо соединить?',
     plusItems: ['Lena'],
-    minusItems: ['Monah', 'Munser', 'Ula', 'Dismas'],
     ratio: 2,
     answers: [
       { text: 'Алиса', isValid: true },
@@ -65,7 +61,8 @@ export const queryList: IQuestion[] = [
   //
   {
     title: 'Четвертый вопрос',
-    question: 'Какой национальности была группа, на которую ты получила билет по случаю своего дня рождения?',
+    question:
+      'Какой национальности была группа, на которую ты получила билет по случаю своего дня рождения?',
     plusItems: ['Lena', 'Monah'],
     answers: [
       'Итальянцы',
@@ -79,13 +76,30 @@ export const queryList: IQuestion[] = [
   {
     title: 'Очередной вопрос вопрос',
     question: 'Где ты родилась?',
-    plusItems: ['LenaSav', 'Monah', 'Munser', 'Dismas', 'SeregaSav', 'Ula', 'otherName'],
     answers: [
-      { text: 'Питер', isValid: true },
-      { text: 'Владимир', isValid: true },
-      { text: 'Владимир', isValid: true },
-      'Ульяновск',
-      'Оренбург',
+      {
+        text: 'Питер',
+        answerNick: ['LenaSav', 'Monah', 'Dismas', 'SeregaSav', 'otherName'],
+      },
+      {
+        text: 'Владимир',
+        answerNick: ['Ula', 'Munser', 'Monah', 'Dismas', 'Tanya', 'otherName'],
+      },
+      { text: 'Ульяновск', answerNick: ['LenaSav', 'SeregaSav', 'otherName'] },
+      { text: 'Оренбург', answerNick: ['Lena'] },
+    ],
+  },
+  //
+  {
+    title: 'Еще парочку вопросов',
+    question: 'А какое у Лены отчество?',
+    plusItems: [],
+    minusItems: ['otherName'],
+    answers: [
+      'Ивановна',
+      'Сергеевна',
+      'Петровна',
+      { text: 'Владимировна', isValid: true },
     ],
   },
   //
@@ -93,9 +107,6 @@ export const queryList: IQuestion[] = [
     title: 'Еще парочку вопросов',
     question: '?',
     plusItems: [],
-    answers: [
-      '',
-      { text: 'Армяне', isValid: true },
-    ],
+    answers: ['', { text: '--- что то надо придумать еще --- ', isValid: true }],
   },
 ];

@@ -10,7 +10,11 @@
 
       <div class="content">
         <div class="control checkbox-list">
-          <label v-for="(v, i) in q.answers" :key="`${i}-${v.text || v}`" class="checkbox">
+          <label
+            v-for="(v, i) in q.answers"
+            :key="`${i}-${v.text || v}`"
+            class="checkbox"
+          >
             <input v-model="listOrAnswers[i]" type="checkbox" :name="i" />
             {{ v.text || v }}
           </label>
@@ -31,7 +35,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Emit } from 'vue-property-decorator';
-import { IQuestion, ISubmitQuery } from '../types/state-types';
+import { IQuestion, ISubmitQuery, IQuestionAnswers } from '../types/state-types';
 
 @Component({
   watch: {
@@ -56,11 +60,26 @@ export default class QuestionCard extends Vue {
 
   get isValidChoose(): boolean {
     const list = this.listOrAnswers;
-    return this.q.answers.every((v, i) => !!v.isValid === list[i]);
+    return this.q.answers.every(
+      (v, i) => typeof v !== 'string' && !!v.isValid === list[i]
+    );
   }
 
   get hasAnswer(): boolean {
     return this.listOrAnswers.some((v) => v === true);
+  }
+
+  get answers(): IQuestionAnswers[] {
+    const goodIndexes = this.listOrAnswers
+      .map((value, index) => ({ value, index }))
+      .filter((item) => item.value)
+      .map((item) => item.index);
+
+    const answers: IQuestionAnswers[] = this.q.answers.filter((v, i) => {
+      return goodIndexes.includes(i);
+    });
+
+    return answers;
   }
 
   @Emit()
@@ -73,6 +92,8 @@ export default class QuestionCard extends Vue {
       isValidChoose: this.isValidChoose,
       plusItems: this.q.plusItems || [],
       minusItems: this.q.minusItems || [],
+      ratio: this.q.ratio || 1,
+      answers: this.answers,
     };
   }
 }

@@ -10,9 +10,7 @@ export const setState: ActMasterActionNamed = {
   exec(data: ISubmitQuery): IState {
     const result: IState = get();
 
-    if (data.isValidChoose) {
-      this.updateScore(result.scoreMap, data.plusItems);
-    }
+    this.updateScore(result.scoreMap, data);
 
     result.step += 1;
 
@@ -21,19 +19,44 @@ export const setState: ActMasterActionNamed = {
     return result;
   },
 
-  updateScore(scoreMap: IScoreMap, plus: UserNamesType[]) {
-    plus.forEach(name => {
-      if (typeof scoreMap[name] === 'undefined') {
-        console.warn('=>', 'Invalid name');
-      }
-      scoreMap[name] += 1;
-    });
+  updateScore(scoreMap: IScoreMap, data: ISubmitQuery) {
+    const plusNames = data.plusItems;
+    const minusNames = data.minusItems;
+    const ratio = data.ratio || 1;
 
-    plus.forEach(name => {
-      if (typeof scoreMap[name] === 'undefined') {
-        console.warn('=>', 'Invalid name');
+    if (data.isValidChoose) {
+      this.addScoreByNames(ratio, plusNames, scoreMap);
+    } else {
+      this.addScoreByNames(ratio, minusNames, scoreMap);
+    }
+
+    data.answers.forEach((answer) => {
+      //@ts-ignore
+      if (typeof answer !== 'string' && !!answer.answerNick) {
+        //@ts-ignore
+        this.addScoreByNames(ratio, answer.answerNick, scoreMap);
       }
-      scoreMap[name] += 1;
     });
+  },
+
+  addScoreByNames(
+    score: number,
+    names: (keyof IScoreMap)[],
+    scoreMap: IScoreMap
+  ) {
+    names.forEach((name) => {
+      this.addScore(score, name, scoreMap);
+    });
+  },
+
+  addScore(score: number, name: keyof IScoreMap, scoreMap: IScoreMap) {
+    this.checkName(name, scoreMap);
+    scoreMap[name] += score;
+  },
+
+  checkName(name: keyof IScoreMap, scoreMap: IScoreMap) {
+    if (typeof scoreMap[name] === 'undefined') {
+      console.warn('=>', `Invalid name "${name}"`);
+    }
   },
 };
