@@ -2,7 +2,7 @@ import { UserNamesType } from './../constants/index';
 import { isIOS } from './../utils/detect-device';
 import { IState } from './../types/state-types';
 import { ActMasterActionNamed } from 'vue-act-master';
-import { get } from '../utils/storage';
+import { get, set } from '../utils/storage';
 
 export const getState: ActMasterActionNamed = {
   name: 'getState',
@@ -13,6 +13,8 @@ export const getState: ActMasterActionNamed = {
       state.init = true;
       this.setIosScore(state);
     }
+
+    set(state);
 
     return state;
   },
@@ -25,5 +27,5 @@ export const getState: ActMasterActionNamed = {
         state.scoreMap[name] += 4;
       });
     }
-  }
+  },
 };

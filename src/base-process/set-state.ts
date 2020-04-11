@@ -6,6 +6,7 @@ import {
   IQuestionAnswers,
 } from './../types/state-types';
 import { ActMasterActionNamed } from 'vue-act-master';
+import { UserNamesType } from '@/constants';
 
 class SetState implements ActMasterActionNamed {
   name = 'setState';
@@ -49,15 +50,21 @@ class SetState implements ActMasterActionNamed {
         this.addScoreByNames(ratio, answer.answerNick, scoreMap);
       }
     });
+
+    return scoreMap;
   }
 
   isValidChoose(
     answers: IQuestionAnswers[],
     listOrAnswers: boolean[]
   ): boolean {
-    return answers.every(
-      (v, i) => typeof v !== 'string' && (v as any).isValid === listOrAnswers[i]
-    );
+    return answers.every((v, i) => {
+      if (typeof v === 'string' && listOrAnswers[i] === false) {
+        return true;
+      }
+
+      return (v as any).isValid === listOrAnswers[i];
+    });
   }
 
   getSelectedAnswers(
@@ -84,25 +91,24 @@ class SetState implements ActMasterActionNamed {
 
   //
 
-  addScoreByNames(
-    score: number,
-    names: (keyof IScoreMap)[],
-    scoreMap: IScoreMap
-  ) {
+  addScoreByNames(score: number, names: UserNamesType[], scoreMap: IScoreMap) {
     names.forEach(name => {
       this.addScore(score, name, scoreMap);
     });
+    return scoreMap;
   }
 
-  addScore(score: number, name: keyof IScoreMap, scoreMap: IScoreMap) {
+  addScore(score: number, name: UserNamesType, scoreMap: IScoreMap) {
     this.checkName(name, scoreMap);
     scoreMap[name] += score;
+    return scoreMap;
   }
 
-  checkName(name: keyof IScoreMap, scoreMap: IScoreMap) {
+  checkName(name: UserNamesType, scoreMap: IScoreMap) {
     if (typeof scoreMap[name] === 'undefined') {
-      console.warn('=>', `Invalid name "${name}"`);
+      return false;
     }
+    return true;
   }
 }
 

@@ -1,11 +1,15 @@
 import { IState, IScoreMap } from '../types/state-types';
 import { storeName, userNames, UserNamesType } from '../constants';
 
-const scoreMap = {} as IScoreMap;
-//@ts-ignore
-Object.keys(userNames).forEach((key: UserNamesType) => {
-  scoreMap[key] = 0;
-});
+export const getScoreMap = (mock: { [k: string]: number } = {}): IScoreMap => {
+  const scoreMap = {} as IScoreMap;
+  //@ts-ignore
+  Object.keys(userNames).forEach((key: UserNamesType) => {
+    scoreMap[key] = 0;
+  });
+
+  return { ...scoreMap, ...mock };
+};
 
 export const get = (): IState => {
   const res = sessionStorage.getItem(storeName);
@@ -17,7 +21,7 @@ export const get = (): IState => {
   return {
     init: false,
     step: 0,
-    scoreMap,
+    scoreMap: getScoreMap(),
   };
 };
 
