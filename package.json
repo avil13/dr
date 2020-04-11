@@ -7,7 +7,7 @@
     "test:watch": "jest --watch",
     "test": "jest",
     "lint": "eslint --ext .js,.vue src test/unit",
-    "build": "parcel build index.html -d docs"
+    "build": "parcel build index.html -d docs --public-url ."
   },
   "keywords": [],
   "license": "ISC",
