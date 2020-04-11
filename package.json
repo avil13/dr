@@ -17,7 +17,7 @@
     "jest-canvas-mock": "^2.2.0",
     "ts-jest": "^25.3.1",
     "vue": "^2.6.11",
-    "vue-act-master": "^0.0.2",
+    "vue-act-master": "latest",
     "vue-property-decorator": "^8.4.1",
     "vue-router": "^3.1.6"
   },

@@ -7752,10 +7752,10 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-act-master@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/vue-act-master/-/vue-act-master-0.0.2.tgz#8a2af5082f1caf7acc10a041de791541e6555da9"
-  integrity sha512-Mgb2dJwCfY9MgdaHnM0NsSzEIZgtdASTdI08drsE/WqwvvhjzHItuWK91dxw+amRNtwl+xx5MbQ8NUU7/3QQvg==
+vue-act-master@latest:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/vue-act-master/-/vue-act-master-0.0.3.tgz#abbbdf52876c91f5b87a8db106baacebdc915122"
+  integrity sha512-aoSQZz60YFsSW0HpVnDWjiXFY85aP/2c3PycbGCMrEiRT9sOlmAl7nOKsBYaVam/E/AXG6/S206KkWzRZl7SkA==
 
 vue-class-component@^7.1.0:
   version "7.2.3"
