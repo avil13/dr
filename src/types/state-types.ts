@@ -25,9 +25,6 @@ export interface IQuestion {
 }
 
 export interface ISubmitQuery {
-  isValidChoose: boolean;
-  plusItems: UserNamesType[];
-  minusItems: UserNamesType[];
-  answers: IQuestionAnswers[];
-  ratio: number;
+  question: IQuestion;
+  listOrAnswers: boolean[];
 }

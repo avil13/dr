@@ -25,6 +25,7 @@
       ]
     },
     "types": [
+      "node",
       "vue-act-master",
       "jest"
     ]

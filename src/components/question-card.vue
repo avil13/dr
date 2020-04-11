@@ -16,7 +16,7 @@
             class="checkbox"
           >
             <input v-model="listOrAnswers[i]" type="checkbox" :name="i" />
-            {{ v.text || v }}
+            {{ v['text'] || v }}
           </label>
         </div>
       </div>
@@ -35,7 +35,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Emit } from 'vue-property-decorator';
-import { IQuestion, ISubmitQuery, IQuestionAnswers } from '../types/state-types';
+import { IQuestion, ISubmitQuery } from '../types/state-types';
 
 @Component({
   watch: {
@@ -58,56 +58,24 @@ export default class QuestionCard extends Vue {
     this.listOrAnswers = this.q.answers.map(() => false);
   }
 
-  get isValidChoose(): boolean {
-    const list = this.listOrAnswers;
-    return this.q.answers.every(
-      (v, i) => typeof v !== 'string' && !!v.isValid === list[i]
-    );
-  }
-
-  get hasAnswer(): boolean {
-    return this.listOrAnswers.some((v) => v === true);
-  }
-
-  get answers(): IQuestionAnswers[] {
-    const goodIndexes = this.listOrAnswers
-      .map((value, index) => ({ value, index }))
-      .filter((item) => item.value)
-      .map((item) => item.index);
-
-    const answers: IQuestionAnswers[] = this.q.answers.filter((v, i) => {
-      return goodIndexes.includes(i);
-    });
-
-    return answers;
-  }
-
   @Emit()
-  submit(): ISubmitQuery | null {
-    if (!this.hasAnswer) {
-      return null;
-    }
-
+  submit(): ISubmitQuery {
     return {
-      isValidChoose: this.isValidChoose,
-      plusItems: this.q.plusItems || [],
-      minusItems: this.q.minusItems || [],
-      ratio: this.q.ratio || 1,
-      answers: this.answers,
+      question: this.q,
+      listOrAnswers: this.listOrAnswers,
     };
   }
 }
 </script>
 
 <style lang="scss">
+$label-indent: 0.7rem;
+
 .checkbox-list {
   .checkbox {
     display: block;
-
-    & + .checkbox {
-      margin-left: 0;
-      margin-top: 0.5em;
-    }
+    padding-top: $label-indent;
+    padding-bottom: $label-indent;
   }
 }
 .footer-pad-top {

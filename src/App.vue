@@ -3,7 +3,7 @@
     <div class="container">
       <div class="columns">
         <div class="column">
-          <HeaderComponent title="***" subtitle="..." ></HeaderComponent>
+          <HeaderComponent title="***" subtitle="..."></HeaderComponent>
           <!--  -->
           <div class="columns">
             <div class="column">
@@ -26,9 +26,10 @@
                 <div class="card-table">
                   <div class="content">
                     <QuestionCard
-                    v-if="question"
-                    @submit="submitHandler"
-                    :q="question" ></QuestionCard>
+                      v-if="question"
+                      @submit="submitHandler"
+                      :q="question"
+                    ></QuestionCard>
                     <div v-else>
                       <h4>У меня нет больше вопросов</h4>
                     </div>
@@ -81,12 +82,8 @@ export default class AppComponent extends Vue {
     return queryList[this.currentStep];
   }
 
-  submitHandler(ev: ISubmitQuery | null) {
-    if (ev === null) {
-      return;
-    }
-    //
-    this.$act.exec(setState.name, ev)
+  submitHandler(ev: ISubmitQuery) {
+    this.$act.exec(setState.name, ev);
   }
 
   updateState(data: IListenerArgs) {
