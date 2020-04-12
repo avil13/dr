@@ -46,6 +46,7 @@
         <div class="column is-hidden-mobile is-2"></div>
       </div>
     </div>
+    <canvas id="canvas_bubble" class="canvas_bubble"></canvas>
   </div>
 </template>
 
@@ -62,6 +63,7 @@ import PostcardComponent from './components/postcard/postcard-component.vue';
 import DevComponent from './components/dev-component.vue';
 import { queryList } from './constants';
 import { isDev } from './utils/is-dev';
+import { homeInitCanvas } from './assets/canvas_bubble';
 
 const components = {
   HeaderComponent,
@@ -106,6 +108,7 @@ export default class AppComponent extends Vue {
     this.$act.addActions(actions);
     this.state = await this.$act.exec(getState.name);
     this.$act.subscribe(setState.name, this.updateState);
+    homeInitCanvas();
   }
 }
 </script>
@@ -114,5 +117,18 @@ export default class AppComponent extends Vue {
 .content {
   padding-top: 2rem;
   padding-bottom: 0.2rem;
+}
+.container {
+  z-index: 1;
+  position: relative;
+}
+#canvas_bubble {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
 </style>
