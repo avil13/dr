@@ -4,13 +4,14 @@
       <div class="columns">
         <div class="column is-hidden-mobile is-2"></div>
         <div class="column">
-          <HeaderComponent title="***" subtitle="..."></HeaderComponent>
+          <HeaderComponent title="🎂" subtitle=""></HeaderComponent>
           <!--  -->
           <div class="columns">
             <div class="column">
               <!--  -->
               <div class="card events-card">
                 <header class="card-header">
+                  <div ref="topElement" id="top_element"></div>
                   <p class="card-header-title">
                     <span v-if="question">{{ title }}</span>
                   </p>
@@ -86,10 +87,15 @@ export default class AppComponent extends Vue {
   }
 
   @Watch('question')
-  onQuestionsChange(val) {
+  onQuestionsChange(val: any) {
     if (!val) {
       homeInitCanvas();
     }
+    const el = this.$refs.topElement;
+    (el as HTMLElement).scrollIntoView({
+      block: 'start',
+      behavior: 'smooth',
+    });
   }
 
   title: string = 'Список вопросов';

@@ -14,14 +14,10 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class HeaderComponent extends Vue {
-  @Prop({
-    type: String,
-  })
+  @Prop({ type: String })
   title!: string;
 
-  @Prop({
-    type: String,
-  })
+  @Prop({ type: String })
   subtitle!: string;
 }
 </script>
