@@ -17,7 +17,7 @@
             всего с друзьями или семьей.
           </p>
           <p>
-            Желаю что бы всегда рядом с тобой были верные друзья и близкие и
+            Желаю чтобы всегда рядом с тобой были верные друзья и близкие и
             дорогие тебе люди.
           </p>
         </div>
@@ -25,10 +25,16 @@
 
       <div id="card-front">
         <div class="wrap">
-          <h1>С днем варенья!!!</h1>
+          <div class="wrap-front">
+            <!-- <h1>С днем варенья!!!</h1> -->
+            <img src="../../../../src/assets/nami.jpg" alt="">
+          </div>
+          <div class="wrap-back">
+            <!-- <img src="../../../../src/assets/happi.jpg" alt=""> -->
+          </div>
         </div>
-        <button id="open">&gt;</button>
-        <button id="close">&lt;</button>
+        <button id="open"></button>
+        <button id="close"></button>
       </div>
     </div>
   </div>
@@ -101,6 +107,9 @@ $col2: #00d1b2;
   p {
     font-size: 0.96rem;
   }
+}
+#card-front .wrap {
+  padding: 1em 2em;
 }
 #card-front,
 #card-inside {
@@ -185,11 +194,15 @@ p.signed {
   -webkit-transition: background 1s linear;
 }
 
+#card-front .wrap .wrap-back {
+  display: none;
+}
+
 #card-front button {
   position: absolute;
   bottom: 1em;
   right: -12px;
-  background: #f44;
+  // background: #f44;
   color: #fff;
   font-family: 'Nobile', sans-serif;
   font-style: italic;
@@ -198,15 +211,38 @@ p.signed {
   padding: 0.5em;
   border: none;
   cursor: pointer;
-  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25),
-    0 0 1px rgba(0, 0, 0, 0.4);
+  // box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.4);
+  // -moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.4);
+  // -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25),
+  //   0 0 1px rgba(0, 0, 0, 0.4);
+
+  width: 40px;
+  height: 40px;
+  background-image: url('../../../../src/assets/arr-right.png');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+  outline: none;
+  transition: 0.3s ease-in-out;
 }
 
-#card-front button:hover,
+#card-front button:hover {
+  background-image: url('../../../../src/assets/arr-right.png');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+  outline: none;
+  transform: translate(5px,0);
+}
+
 #card-front button:focus {
-  background: #f22;
+  outline: none;
 }
 
 #close {
@@ -247,9 +283,20 @@ p.signed {
   background-color: rgba(0, 0, 0, 0);
 }
 
-#card.open-fully #card-front .wrap *,
-#card.close-half #card-front .wrap * {
+#card.open-fully #card-front .wrap .wrap-front,
+#card.close-half #card-front .wrap .wrap-front {
   display: none;
+}
+
+#card.open-fully #card-front .wrap .wrap-back,
+#card.close-half #card-front .wrap .wrap-back {
+  display: block;
+  padding: 1.5em 2.5em;
+  height: 100%;
+  background-image: url('../../../../src/assets/happy-transparent.png');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 footer {
