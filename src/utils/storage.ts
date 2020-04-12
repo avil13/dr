@@ -12,7 +12,7 @@ export const getScoreMap = (mock: { [k: string]: number } = {}): IScoreMap => {
 };
 
 export const get = (): IState => {
-  const res = sessionStorage.getItem(storeName);
+  const res = localStorage.getItem(storeName);
 
   if (res) {
     return JSON.parse(res);
@@ -27,12 +27,12 @@ export const get = (): IState => {
 
 export const set = (state: IState): void => {
   if (typeof state === 'object' && state !== null) {
-    sessionStorage.setItem(storeName, JSON.stringify(state));
+    localStorage.setItem(storeName, JSON.stringify(state));
   }
 };
 
 export const reset = (): void => {
-  sessionStorage.removeItem(storeName);
+  localStorage.removeItem(storeName);
   const state = get();
   set(state);
 };
