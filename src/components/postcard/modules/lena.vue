@@ -3,7 +3,11 @@
     <div class="wrap">
       <div class="wrap-item">
         <h1>С днем варенья!!!</h1>
-        <img class="wrap-item-img" src="../../../../src/assets/happy-transparent.png" alt="">
+        <img
+          class="wrap-item-img"
+          src="../../../../src/assets/vini.png"
+          alt=""
+        />
       </div>
       <div class="wrap-item wrap-item-text">
         <p>
@@ -20,7 +24,7 @@
           всего с друзьями или семьей.
         </p>
         <p>
-          Желаю что бы всегда рядом с тобой были верные друзья и близкие и
+          Желаю чтобы всегда рядом с тобой были верные друзья и близкие и
           дорогие тебе люди.
         </p>
       </div>
@@ -36,8 +40,7 @@ export default class LenaPostcard extends Vue {
   @Prop({ type: String, required: true })
   name!: string;
 
-  mounted() {
-  }
+  mounted() {}
 }
 </script>
 

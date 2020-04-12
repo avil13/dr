@@ -12,7 +12,7 @@
               <div class="card events-card">
                 <header class="card-header">
                   <p class="card-header-title">
-                    {{ title }}
+                    <span v-if="question">{{ title }}</span>
                   </p>
                   <a
                     href="#"
@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import { IListenerArgs } from 'vue-act-master';
 
 import { getState, setState, resetState } from './base-process';
@@ -63,7 +63,7 @@ import PostcardComponent from './components/postcard/postcard-component.vue';
 import DevComponent from './components/dev-component.vue';
 import { queryList } from './constants';
 import { isDev } from './utils/is-dev';
-import { homeInitCanvas } from './assets/canvas_bubble';
+import { homeInitCanvas } from './utils/canvas_bubble';
 
 const components = {
   HeaderComponent,
@@ -83,6 +83,13 @@ export default class AppComponent extends Vue {
   get currentStep(): number {
     const s = this.state?.step || 0;
     return s;
+  }
+
+  @Watch('question')
+  onQuestionsChange(val) {
+    if (!val) {
+      homeInitCanvas();
+    }
   }
 
   title: string = 'Список вопросов';
@@ -108,7 +115,6 @@ export default class AppComponent extends Vue {
     this.$act.addActions(actions);
     this.state = await this.$act.exec(getState.name);
     this.$act.subscribe(setState.name, this.updateState);
-    homeInitCanvas();
   }
 }
 </script>
@@ -123,12 +129,12 @@ export default class AppComponent extends Vue {
   position: relative;
 }
 #canvas_bubble {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 </style>
