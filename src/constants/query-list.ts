@@ -1,4 +1,4 @@
-import { IQuestion } from '@/types/state-types';
+import { IQuestion } from '@/types/state-types'
 
 export const queryList: IQuestion[] = [
   {
@@ -137,4 +137,4 @@ export const queryList: IQuestion[] = [
     ],
   },
   //
-];
+]

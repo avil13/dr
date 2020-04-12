@@ -6,13 +6,12 @@
     "dev": "parcel index.html",
     "test:watch": "jest --watch",
     "test": "jest",
-    "lint": "eslint --ext .ts,.vue src",
-    "lint:fix": "eslint --fix --ext .ts,.vue src",
+    "lint": "eslint --ext .ts,.vue .",
     "build": "parcel build index.html -d docs --public-url ."
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn run lint:fix && yarn test && git update-index --again && yarn run build"
+      "pre-push": "yarn test && yarn run build && git add ./docs/ && git update-index --again"
     }
   },
   "keywords": [],

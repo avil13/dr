@@ -1,12 +1,12 @@
-import { reset } from './../utils/storage';
-import { ActMasterActionNamed } from 'vue-act-master';
+import { reset } from './../utils/storage'
+import { ActMasterActionNamed } from 'vue-act-master'
 
 export const resetState: ActMasterActionNamed = {
   name: 'State',
-  exec() {
-    reset();
+  exec () {
+    reset()
     setTimeout(() => {
-      window.location.reload();
-    });
+      window.location.reload()
+    })
   },
-};
+}

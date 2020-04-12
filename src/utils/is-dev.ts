@@ -1,4 +1,4 @@
 export const isDev = (): boolean => {
-  const str = window.location.hash.replace(/^#/, '');
-  return str === 'dev';
-};
+  const str = window.location.hash.replace(/^#/, '')
+  return str === 'dev'
+}

@@ -4,7 +4,7 @@ import { IState } from '@/types/state-types';
 export const getName = (state: IState) => {
   const storeMap = state.scoreMap;
 
-  let maxKey!: UserNamesType;
+  let maxKey: UserNamesType | string = '';
   let maxVal: number = -1;
 
   for (let key in storeMap) {
@@ -20,6 +20,6 @@ export const getName = (state: IState) => {
 
   return {
     key: maxKey,
-    name: userNames[maxKey],
+    name: userNames[maxKey as UserNamesType],
   };
 };
