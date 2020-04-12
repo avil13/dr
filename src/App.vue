@@ -35,14 +35,7 @@
                       <PostcardComponent />
                     </div>
 
-                    <div v-if="isDev">
-                      <pre>{{ state }}</pre>
-                      <div class="box has-text-centered">
-                        <button @click="resetState" type="reset" class="button">
-                          reset
-                        </button>
-                      </div>
-                    </div>
+                    <DevComponent v-if="isDev" :state="state" />
                   </div>
                 </div>
                 <!--  -->
@@ -66,6 +59,7 @@ import { IState, IQuestion, ISubmitQuery } from './types/state-types';
 import HeaderComponent from './components/header-component.vue';
 import QuestionCard from './components/question-card.vue';
 import PostcardComponent from './components/postcard/postcard-component.vue';
+import DevComponent from './components/dev-component.vue';
 import { queryList } from './constants';
 import { isDev } from './utils/is-dev';
 
@@ -73,6 +67,7 @@ const components = {
   HeaderComponent,
   QuestionCard,
   PostcardComponent,
+  DevComponent,
 };
 
 @Component({ components })
@@ -81,10 +76,6 @@ export default class AppComponent extends Vue {
 
   get isDev() {
     return isDev();
-  }
-
-  resetState() {
-    this.$act.exec(resetState.name);
   }
 
   get currentStep(): number {

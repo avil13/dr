@@ -7,8 +7,8 @@ export const userNames = {
   Monah: 'Монах',
   SeregaSav: 'Эл',
   Dismas: 'Дисмас',
-  otherBoy: 'Чувак',
-  otherGirl: 'Подруга',
+  otherBoy: 'Чувак какой-то',
+  otherGirl: 'Телка какая-то',
 };
 
 export type UserNamesType = keyof typeof userNames;
