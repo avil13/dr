@@ -36,6 +36,8 @@ export const queryList: IQuestion[] = [
       'SeregaSav',
       'Dismas',
       'Tanya',
+      'otherBoy',
+      'otherGirl',
     ],
     minusItems: ['otherBoy', 'otherGirl'],
     answers: [
@@ -79,7 +81,7 @@ export const queryList: IQuestion[] = [
     title: 'Четвертый вопрос',
     question:
       'Какой национальности была группа, на которую ты получила билет по случаю своего дня рождения?',
-    plusItems: ['Lena', 'Monah'],
+    plusItems: ['Lena', 'Monah', 'otherBoy', 'otherGirl'],
     answers: [
       'Итальянцы',
       'Грузины',
@@ -120,7 +122,7 @@ export const queryList: IQuestion[] = [
         text: 'Ульяновск',
         answerNick: ['LenaSav', 'SeregaSav', 'otherBoy', 'otherGirl'],
       },
-      { text: 'Оренбург', answerNick: ['Lena'] },
+      { text: 'Оренбург', answerNick: ['Lena', 'otherBoy', 'otherGirl'] },
     ],
   },
   //
