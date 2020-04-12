@@ -30,3 +30,9 @@ export const set = (state: IState): void => {
     sessionStorage.setItem(storeName, JSON.stringify(state));
   }
 };
+
+export const reset = (): void => {
+  sessionStorage.removeItem(storeName);
+  const state = get();
+  set(state);
+};

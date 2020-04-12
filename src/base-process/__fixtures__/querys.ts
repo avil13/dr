@@ -91,7 +91,7 @@ export const addScore = (): [
 ][] => [
   //
   [[1, 'Lena', getScoreMap()], getScoreMap({ Lena: 1 })],
-  [[2, 'otherName', getScoreMap()], getScoreMap({ otherName: 2 })],
+  [[2, 'otherBoy', getScoreMap()], getScoreMap({ otherBoy: 2 })],
 ];
 
 export const addScoreByNames = (): [

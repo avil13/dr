@@ -9,6 +9,22 @@ export const queryList: IQuestion[] = [
   },
   //
   {
+    title: 'Вопрос номер ноль!',
+    question: 'Ты парень или девушка?',
+    ratio: 10,
+    answers: [
+      {
+        text: 'Парень',
+        answerNick: ['Munser', 'Monah', 'SeregaSav', 'Dismas', 'otherBoy'],
+      },
+      {
+        text: 'Девушка',
+        answerNick: ['Lena', 'LenaSav', 'Ula', 'Tanya', 'otherGirl'],
+      },
+    ],
+  },
+  //
+  {
     title: 'Первый вопрос',
     question: 'Какое имя того, для кого сделан этот сайт?',
     plusItems: [
@@ -21,7 +37,7 @@ export const queryList: IQuestion[] = [
       'Dismas',
       'Tanya',
     ],
-    minusItems: ['otherName'],
+    minusItems: ['otherBoy', 'otherGirl'],
     answers: [
       'Ваня',
       'Аня',
@@ -38,11 +54,11 @@ export const queryList: IQuestion[] = [
     question: 'Балгодаря кому, мы познакомились?',
     answers: [
       { text: 'Аня', answerNick: ['Lena'] },
-      {text: 'Юля', answerNick: ['SeregaSav', 'LenaSav', 'Monah']},
-      {text: 'Лена', answerNick: ['otherName']},
-      {text: 'Леха', answerNick: ['Ula', 'Munser', 'Monah'] },
-      {text: 'Егор', answerNick: ['Ula', 'Munser'] },
-      {text: 'Сергей', answerNick: ['otherName'] },
+      { text: 'Юля', answerNick: ['SeregaSav', 'LenaSav', 'Monah'] },
+      { text: 'Лена', answerNick: ['otherBoy', 'otherGirl'] },
+      { text: 'Леха', answerNick: ['Ula', 'Munser', 'Monah'] },
+      { text: 'Егор', answerNick: ['Ula', 'Munser'] },
+      { text: 'Сергей', answerNick: ['otherBoy', 'otherGirl'] },
     ],
   },
   //
@@ -74,18 +90,36 @@ export const queryList: IQuestion[] = [
   },
   //
   {
-    title: 'Очередной вопрос вопрос',
-    question: 'Где ты родилась?',
+    title: 'Очередной вопрос',
+    question: 'Где родилась именинница?',
     answers: [
       {
         text: 'Питер',
-        answerNick: ['LenaSav', 'Monah', 'Dismas', 'SeregaSav', 'otherName'],
+        answerNick: [
+          'LenaSav',
+          'Monah',
+          'Dismas',
+          'SeregaSav',
+          'otherBoy',
+          'otherGirl',
+        ],
       },
       {
         text: 'Владимир',
-        answerNick: ['Ula', 'Munser', 'Monah', 'Dismas', 'Tanya', 'otherName'],
+        answerNick: [
+          'Ula',
+          'Munser',
+          'Monah',
+          'Dismas',
+          'Tanya',
+          'otherBoy',
+          'otherGirl',
+        ],
       },
-      { text: 'Ульяновск', answerNick: ['LenaSav', 'SeregaSav', 'otherName'] },
+      {
+        text: 'Ульяновск',
+        answerNick: ['LenaSav', 'SeregaSav', 'otherBoy', 'otherGirl'],
+      },
       { text: 'Оренбург', answerNick: ['Lena'] },
     ],
   },
@@ -94,7 +128,7 @@ export const queryList: IQuestion[] = [
     title: 'Еще парочку вопросов',
     question: 'А какое у Лены отчество?',
     plusItems: [],
-    minusItems: ['otherName'],
+    minusItems: ['otherBoy', 'otherGirl'],
     answers: [
       'Ивановна',
       'Сергеевна',
@@ -103,10 +137,4 @@ export const queryList: IQuestion[] = [
     ],
   },
   //
-  {
-    title: 'Еще парочку вопросов',
-    question: '?',
-    plusItems: [],
-    answers: ['', { text: '--- что то надо придумать еще --- ', isValid: true }],
-  },
 ];

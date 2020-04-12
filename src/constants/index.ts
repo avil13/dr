@@ -1,15 +1,15 @@
 export const userNames = {
-  Lena: '',
-  LenaSav: '',
-  Ula: '',
-  Munser: '',
-  Monah: '',
-  SeregaSav: '',
-  Dismas: '',
-  Tanya: '',
-  otherName: '',
+  Lena: 'Лена',
+  LenaSav: 'Feima',
+  Ula: 'Юля',
+  Tanya: 'Таня',
+  Munser: 'Мунсер',
+  Monah: 'Монах',
+  SeregaSav: 'Эл',
+  Dismas: 'Дисмас',
+  otherBoy: 'Чувак',
+  otherGirl: 'Подруга',
 };
-
 
 export type UserNamesType = keyof typeof userNames;
 

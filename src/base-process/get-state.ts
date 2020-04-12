@@ -21,7 +21,7 @@ export const getState: ActMasterActionNamed = {
 
   setIosScore(state: IState) {
     if (isIOS()) {
-      const names: UserNamesType[] = ['Munser', 'Ula', 'otherName'];
+      const names: UserNamesType[] = ['Munser', 'Ula'];
 
       names.forEach(name => {
         state.scoreMap[name] += 4;
