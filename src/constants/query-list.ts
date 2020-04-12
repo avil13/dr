@@ -1,4 +1,4 @@
-import { IQuestion } from '@/types/state-types'
+import { IQuestion } from '@/types/state-types';
 
 export const queryList: IQuestion[] = [
   {
@@ -66,7 +66,7 @@ export const queryList: IQuestion[] = [
     title: 'Третий вопрос',
     question: 'Выбери два имени, кторорые надо соединить?',
     plusItems: ['Lena'],
-    ratio: 2,
+    ratio: 3,
     answers: [
       { text: 'Алиса', isValid: true },
       'Оля',
@@ -137,4 +137,4 @@ export const queryList: IQuestion[] = [
     ],
   },
   //
-]
+];
