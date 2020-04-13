@@ -11,7 +11,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn test && yarn run build && git add ./docs/ && git update-index --again"
+      "pre-push": "yarn test && yarn run build && git add ./docs/ && git update-index --again && git commit --amend --no-edit"
     }
   },
   "keywords": [],
