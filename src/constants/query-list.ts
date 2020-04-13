@@ -122,7 +122,7 @@ export const queryList: IQuestion[] = [
         text: 'Ульяновск',
         answerNick: ['LenaSav', 'SeregaSav', 'otherBoy', 'otherGirl'],
       },
-      { text: 'Оренбург', answerNick: ['Lena', 'Munser', 'Ula', 'LenaSav', 'otherBoy', 'otherGirl'] },
+      { text: 'Оренбург', answerNick: ['Lena', 'Munser', 'Ula', 'LenaSav', 'Monah', 'otherBoy', 'otherGirl'] },
     ],
   },
   //
