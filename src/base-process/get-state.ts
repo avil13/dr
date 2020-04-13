@@ -1,5 +1,5 @@
 import { UserNamesType } from './../constants/index';
-import { isIOS } from './../utils/detect-device';
+import { isIOS, isWin } from './../utils/detect-device';
 import { IState } from './../types/state-types';
 import { ActMasterActionNamed } from 'vue-act-master';
 import { get, set } from '../utils/storage';
@@ -20,13 +20,16 @@ export const getState: ActMasterActionNamed = {
   },
 
   setIosScore(state: IState) {
-    if (isIOS()) {
-      const names: UserNamesType[] = ['Munser', 'Ula', 'otherBoy', 'otherGirl'];
+    let names: UserNamesType[] = [];
 
-      names.forEach(name => {
-        console.log('=>', name);
-        state.scoreMap[name] += 2;
-      });
+    if (isIOS()) {
+      names = ['Munser', 'Ula', 'otherBoy', 'otherGirl'];
+    } else if (isWin()) {
+      names = ['Monah', 'SeregaSav', 'LenaSav', 'otherBoy', 'otherGirl'];
     }
+
+    names.forEach(name => {
+      state.scoreMap[name] += 2;
+    });
   },
 };
