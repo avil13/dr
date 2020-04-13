@@ -81,7 +81,7 @@ export const queryList: IQuestion[] = [
     title: 'Четвертый вопрос',
     question:
       'Какой национальности была группа, на которую ты получила билет по случаю своего дня рождения?',
-    plusItems: ['Lena', 'Monah', 'otherBoy', 'otherGirl'],
+    plusItems: ['Lena', 'Monah', 'LenaSav', 'Ula', 'Munser', 'otherBoy', 'otherGirl'],
     answers: [
       'Итальянцы',
       'Грузины',
